@@ -12,12 +12,7 @@ bun run dev
 ```
 
 # production
-## option 1 : deploy by push on main
+## deploy by push on main
 
 the github action will trigger the build and deploy
 
-## option 2 : deploy to gh manually from your laptop
-
-```
-./script/release.sh
-```
