@@ -35,7 +35,7 @@ export default function HomePage() {
 
         <section className="py-12 bg-white">
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 px-4">
-            <Link to="/tableau" className="h-full">
+            <Link to="/carte" className="h-full">
               <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
                 <div className="text-green-700 text-4xl mb-3">📌</div>
                 <h3 className="font-medium mt-auto">Explorer la carte</h3>

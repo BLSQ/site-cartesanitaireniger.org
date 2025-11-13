@@ -8,7 +8,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       
       <Route
-        path="/tableau"
+        path="/carte"
         element={
           <SupersetDashboard
             openHexaUuid="5dd107f2-7f5c-4646-a2d0-9a7725bbe83a"
