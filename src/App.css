@@ -1,0 +1,52 @@
+body {
+  margin: 0px;
+  padding: 0px;
+
+  font-size: 20px;
+  font-family: sans-serif;
+
+  background-image: url("https://pevrdcongo.cd/wp-content/uploads/2023/03/vaccination-routine.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 25px;
+}
+
+select {
+  height: 50px;
+  width: 700px;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+#link {
+  font-size: 40px;
+}
+a {
+  color: #449bf3;
+}
+
+h1 {
+  padding-top: 20px;
+}
+select {
+  margin: 10px;
+}
+#container {
+  background-color: white;
+  color: #0d3b69;
+  margin: auto;
+  padding: 40px;
+  max-width: 960px;
+  text-align: center;
+  height: 100%;
+}
+
+#lang_select {
+  float: right;
+}
+
+pre {
+  text-align: left;
+}
