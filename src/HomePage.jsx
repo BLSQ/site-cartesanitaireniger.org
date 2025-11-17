@@ -20,7 +20,7 @@ export default function HomePage() {
               Le Ministre de la Santé et l'Hygiène Publique vous souhaite la
               bienvenue sur la carte sanitaire digitale, interactive et
               dynamique. Le développement de cette carte sanitaire avec l’appui
-              de'ENABEL, s’inscrit dans le cadre du partage des
+              d'ENABEL, s’inscrit dans le cadre du partage des
               informations sanitaires aux différents utilisateurs. Elle joue un
               rôle de planification et de régulation de l’offre des soins et
               services. Aussi, elle permet une meilleure visibilité des
