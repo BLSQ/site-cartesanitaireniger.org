@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import Dhis2Icon from "./Dhis2Icon";
+import Dhis2Icon from "./icons/dhis2";
+import PinIcon from "./icons/pin";
+import BookIcon from "./icons/book";
 
 export default function HomePage() {
   return (
@@ -10,8 +12,8 @@ export default function HomePage() {
           <div className="relative z-10 max-w-2xl mx-auto px-4">
             <img
               src="./logo-ministere-niger.jpeg"
-              className="mx-auto mb-4 h-16"
-              alt="Logo Ministère"
+              className="mx-auto mb-4 h-55"
+              alt="Ministère de la Santé et de l'hygiène publique"
             />
             <h1 className="text-3xl font-semibold mb-4">
               Carte sanitaire du Niger
@@ -37,7 +39,7 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 px-4">
             <Link to="/carte" className="h-full">
               <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
-                <div className="text-green-700 text-4xl mb-3">📌</div>
+                <div className="flex justify-center items-center text-green-700 text-4xl mb-3"><PinIcon fill="grey"></PinIcon></div>                
                 <h3 className="font-medium mt-auto">Explorer la carte</h3>
               </div>
             </Link>
@@ -53,7 +55,9 @@ export default function HomePage() {
 
             <a href="https://www.msppas.ne/" className="h-full">
               <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
-                <div className="text-green-700 text-4xl mb-3">📘</div>
+              <div className="flex justify-center items-center text-green-700 text-4xl mb-3">
+                  <BookIcon />
+                </div>
                 <h3 className="font-medium mt-auto">
                   Le Ministre de la Santé et de l'Hygiène Publique
                 </h3>
