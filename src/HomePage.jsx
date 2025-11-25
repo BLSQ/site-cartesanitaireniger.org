@@ -73,15 +73,15 @@ export default function HomePage() {
           </div>
         </div>
         <div className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 px-4">
-          <div className="flex-1 flex justify-center max-h-[50px]">
+          <div className="flex-1 flex justify-center max-h-[30px]">
             <a href="https://www.enabel.be/fr/" >
-              <img src="/logo-enabel.png" className="max-h-[50px]"/>
+              <img src="/logo-enabel.png" className="max-h-[30px]"/>
             </a>
           </div>
 
-          <div className="flex-1 flex justify-center max-h-[100px]">
+          <div className="flex-1 flex justify-center max-h-[30px]">
             <a href="https://www.bluesquarehub.com/">
-              <img src="./blsq.png" className="max-h-[50px]" />
+              <img src="./blsq.png" className="max-h-[30px]" />
             </a>
           </div>
         </div>
