@@ -1,22 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { embedDashboard } from "@superset-ui/embedded-sdk";
+export default function SupersetDashboard({
+  openHexaUuid,
+  supersetUuid,
+  supersetDomain,
+}) {
+  const [loading, setLoading] = useState(true);
 
-
-export default function SupersetDashboard({openHexaUuid, supersetUuid, supersetDomain}) {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const loadSdk = async () => {
-      if (!window.supersetEmbeddedSdk) {
-        await import("https://unpkg.com/@superset-ui/embedded-sdk");
-      }
-
       const response = await fetch(
-        `https://exhibit.bluesquare.org/api/superset/dashboard/${openHexaUuid}/guesttoken`,
+        `https://exhibit.bluesquare.org/api/superset/dashboard/${openHexaUuid}/guesttoken`
       );
       const data = await response.json();
-      const token =  data.guestToken;
+      const token = data.guestToken;
 
-      window.supersetEmbeddedSdk.embedDashboard({
+      embedDashboard({
         id: supersetUuid,
         supersetDomain: supersetDomain,
         mountPoint: containerRef.current,
@@ -31,10 +32,24 @@ export default function SupersetDashboard({openHexaUuid, supersetUuid, supersetD
           "allow-scripts",
         ],
       });
+      setTimeout(() => setLoading(false), 2000); // 200ms delay
     };
 
     loadSdk();
   }, []);
 
-  return <div id="container" ref={containerRef} className="h-screen w-screen flex"/>;
+  return (
+    <div>
+      {loading && (
+        <div className="flex items-center justify-center min-h-[100vh]">
+          <img src="superset-loading.gif" alt="loading" className="h-8" />
+        </div>
+      )}
+      <div
+        id="container"
+        ref={containerRef}
+        className="h-screen w-screen flex"
+      ></div>
+    </div>
+  );
 }
