@@ -32,7 +32,7 @@ export default function HomePage() {
         <LinkButton
           icon={<DashboardIcon />}
           title="Explorer la carte"
-          description="Visualisez les indicateurs de performance en temps réel"
+          description="Visualisez la carte, les structures de santé et le matériel disponible"
           href="/carte"
         />
         <LinkButton
