@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import ReportSummary from "./ReportSummary";
-import HomePage from "./HomePage";
+import Select from "react-select";
+import { Link } from "react-router-dom";
+import Page from "./components/Page";
+import BackIcon from "./icons/back";
+
 
 const EXHIBIT_URL = "https://exhibit.bluesquare.org";
 
@@ -14,7 +18,7 @@ async function fetchDistinct(field, filters = [], orders = []) {
     params.append("orders", `${order}`);
   });
 
-  const url = `${EXHIBIT_URL}/api/workspaces/cod-mashako-3-0/tables/public_reports/distinct/${encodeURIComponent(
+  const url = `${EXHIBIT_URL}/api/workspaces/niger-extension-couverture-sanitaire/tables/public_model_health_ext/distinct/${encodeURIComponent(
     field
   )}/?${params.toString()}`;
 
@@ -39,7 +43,7 @@ function useDistinctField(
     (async () => {
       const filters = dependencies.map((d) => [d, "eq", selections[d]]);
       const vals = await fetchDistinct(field, filters, orders);
-
+      debugger;
       setState({ options: vals, loaded: true });
 
       if (vals.length === 1 && !selections[field]) {
@@ -53,36 +57,23 @@ function useDistinctField(
 
 export default function App() {
   const fields = [
-    { key: "report_name", label: "Rapport", deps: [] },
     {
-      key: "period",
-      label: "Période",
-      deps: ["report_name"],
-      orders: ["period:desc"],
+      key: "region",
+      label: "Région",
+      deps: [],
+      orders: ["region:asc"],
     },
     {
-      key: "level 1",
-      label: "Pays",
-      deps: ["report_name", "period"],
-      orders: [],
+      key: "district",
+      label: "District",
+      deps: ["region"],
+      orders: ["district:asc"],
     },
     {
-      key: "level 2",
-      label: "Province",
-      deps: ["report_name", "period", "level 1"],
-      orders: [],
-    },
-    {
-      key: "level 3",
-      label: "Antenne",
-      deps: ["report_name", "period", "level 1", "level 2"],
-      orders: [],
-    },
-    {
-      key: "level 4",
-      label: "Zone de Santé",
-      deps: ["report_name", "period", "level 1", "level 2", "level 3"],
-      orders: [],
+      key: "methode",
+      label: "Méthode",
+      deps: ["region", "district"],
+      orders: ["methode:asc"],
     },
   ];
 
@@ -90,85 +81,79 @@ export default function App() {
   const optionsMap = Object.fromEntries(
     fields.map(({ key, deps, orders }) => [
       key,
+      // @ts-ignore
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       useDistinctField(key, deps, orders, selections, setSelections),
     ])
   );
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url('https://pevrdcongo.cd/wp-content/uploads/2023/03/vaccination-routine.jpg')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        fontFamily: " 'Inter', 'Helvetica Neue', Arial, sans-serif;",
-        fontSize: "25px",
-      }}
-    >
-      <div className="p-6 max-w-4xl mx-auto space-y-4 bg-white min-h-screen">
-        <a href="./">
-          <p className="flex items-center justify-center gap-3">
-            <img
-              width="550"
-              alt="image"
-              src="https://gist.github.com/user-attachments/assets/269903cc-347f-4288-bd97-f102f4fbca25"
-            />
-          </p>
-        </a>
+    <Page>
+      <div className="space-y-8">
+        <Link
+          to="/"
+          className="text-blue-500 hover:font-bold flex items-center gap-2 text-sm md:text-base"
+        >
+          <BackIcon /> Retour à l&apos;accueil
+        </Link>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold md:tracking-tight xl:tracking-tighter mt-4">
+          Téléchargement de l'atlas d'accessibilité
+        </h1>
 
-        <h1 className="text-xl font-bold"> Registre des rapports</h1>
-
-        <p className="text-sm">
-          Bienvenue sur la plateforme de téléchargement des rapports de
-          performance de la vaccination de routine!
-        </p>
-
-        <p className="text-sm">
-          Grace aux données collectées par Gestion PEV via le DHIS2, vous avec
-          la possibilité de télécharger les rapports mensuels de supervision au
-          niveau National, Zone de Santé et Antenne ainsi que les différents
-          rapports des réunions de monitorage.
+        <p className="text-sm text-slate-500 2xl:text-base">
+          Cet outil permet de créer des <b>atlas d’accessibilité</b> afin d’analyser l’accès géographique des populations aux structures de santé et d’identifier les <b>déserts sanitaires</b>.
+          Il s’adresse principalement à la <b>Direction de la Santé</b> et aux responsables du <b>Ministère de la Santé</b> aux niveaux décentralisés, afin de les aider à identifier les emplacements où l’implantation ou l’extension d’une structure de santé aurait le plus fort impact en termes de population couverte.
+          L’outil permet notamment d’estimer l’impact, en nombre de personnes concernées, de la <b>transformation d’une Case de Santé (CS) en Centre de Santé Intégré (CSI)</b>.
         </p>
 
         <h1 className="text-xl font-bold">
           Sélectionner un des rapports disponibles
         </h1>
 
-        {fields.map(({ key, label }, i) => {
-          const { options, loaded } = optionsMap[key];
-          if (!loaded || options.length === 0) {
-            return null; // hide only when fetched and empty
-          }
-
-          return (
-            <select
-              key={key}
-              className="w-full p-2 border rounded text-sm"
-              value={selections[key] || ""}
-              onChange={(e) => {
-                const value = e.target.value;
-                setSelections((prev) => {
-                  const next = { ...prev, [key]: value };
-                  fields.slice(i + 1).forEach(({ key }) => (next[key] = ""));
-                  return next;
-                });
-              }}
-            >
-              <option value="">{`Sélectionnez ${label}`}</option>
-              {options.map((o) => (
-                <option key={o} value={o}>
-                  {o}
-                </option>
-              ))}
-            </select>
-          );
-        })}
-
-        {fields.slice(0, 3).every(({ key }) => selections[key]) && (
+        <div className="space-y-2">
+          {fields.map(({ key, label, formatter }, i) => {
+            debugger
+            const { options, loaded } = optionsMap[key];
+            if (!loaded || options.length === 0) {
+              return null; // hide only when fetched and empty
+            }
+            debugger;
+            return (
+              <Select
+                key={key}
+                className="w-full text-sm"
+                value={
+                  selections[key]
+                    ? {
+                      value: selections[key],
+                      label: formatter
+                        ? formatter(selections[key])
+                        : selections[key],
+                    }
+                    : null
+                }
+                onChange={(selectedOption) => {
+                  const value = selectedOption ? selectedOption.value : "";
+                  setSelections((prev) => {
+                    const next = { ...prev, [key]: value };
+                    fields.slice(i + 1).forEach(({ key }) => (next[key] = ""));
+                    return next;
+                  });
+                }}
+                options={options.map((o) => ({
+                  value: o,
+                  label: formatter ? formatter(o) : o,
+                }))}
+                placeholder={`Sélectionnez ${label}`}
+                isClearable
+              />
+            );
+          })}
+        </div>
+        {fields.slice(0, 2).every(({ key }) => selections[key]) && (
           <ReportSummary exhibitUrl={EXHIBIT_URL} selections={selections} />
         )}
       </div>
-    </div>
+    </Page>
   );
 }

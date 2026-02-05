@@ -1,12 +1,15 @@
 import { Routes, Route } from "react-router-dom";
+import ReportDownloadPage from "./ReportDownloadPage";
 import HomePage from "./HomePage";
+import HomePageNew from "./HomePageNew";
 import SupersetDashboard from "./SupersetDashboard";
 
 export default function App() {
   return (
     <Routes>
+       <Route path="/new" element={<HomePageNew />} />
       <Route path="/" element={<HomePage />} />
-      
+       <Route path="/reports" element={<ReportDownloadPage />} />
       <Route
         path="/carte"
         element={
