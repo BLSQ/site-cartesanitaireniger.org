@@ -27,7 +27,7 @@ export default function Page({ showLogos = false, extraContentClassName = "", ch
               <img
                 src="./logo-ministere-niger.jpeg"
                 alt="Ministère de la santé"
-                className="h-16 2xl:h-24 object-contain"
+                className="h-35 2xl:h-65 object-contain"
               />
             </div>}
 

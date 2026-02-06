@@ -4,6 +4,8 @@ import ReportsIcon from "./icons/reports";
 import DbIcon from "./icons/db";
 import Page from "./components/Page";
 import ChevronIcon from "./icons/chevron";
+import PinIcon from "./icons/pin";
+import BookIcon from "./icons/book";
 
 export default function HomePage() {
   return (
@@ -13,24 +15,19 @@ export default function HomePage() {
       </h1>
 
       <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
-              Le Ministre de la Santé et l'Hygiène Publique vous souhaite la
-              bienvenue sur la carte sanitaire digitale, interactive et
-              dynamique. Le développement de cette carte sanitaire avec l’appui
-              d'ENABEL, s’inscrit dans le cadre du partage des
-              informations sanitaires aux différents utilisateurs. Elle joue un
-              rôle de planification et de régulation de l’offre des soins et
-              services. Aussi, elle permet une meilleure visibilité des
-              tendances des indicateurs et des actions de santé, l’élaboration
-              et la mise en œuvre d’outils de communication et d’information
-              modernes. Elle est alimentée par le DHIS 2 qui est aujourd’hui
-              l’outil principal de la gestion des données sanitaires de routine
-              du Niger.
+           Le Ministère de la Santé vous souhaite la bienvenue sur la carte sanitaire digitale, interactive et dynamique. Le développement de cette carte sanitaire, sous financement d'Enabel, s’inscrit dans le cadre du partage des informations sanitaires aux différents utilisateurs.
+      </p>
+      <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
+           Elle joue un rôle de planification et de régulation de l’offre des soins et services. Aussi, elle permet une meilleure visibilité des tendances des indicateurs et des actions de santé, l’élaboration et la mise en œuvre d’outils de communication et d’information modernes.
+</p>
+      <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
+           Elle est principalement alimentée par le système national d'information sanitaire (DHIS2) qui est aujourd’hui l’outil principal de la gestion des données sanitaires de routine du Niger.
       </p>
 
       {/* Buttons */}
       <div className="my-8 2xl:my-16 grid grid-cols-1 lg:grid-cols-4 gap-2 2xl:gap-4">
         <LinkButton
-          icon={<DashboardIcon />}
+          icon={<PinIcon />}
           title="Explorer la carte"
           description="Visualisez la carte, les structures de santé et le matériel disponible"
           href="/carte"
@@ -43,12 +40,12 @@ export default function HomePage() {
         />
         <LinkButton
           icon={<DbIcon />}
-          title="Dhis2 National"
+          title="DHIS2 National"
           description="Données nationales sur le DHIS2"
           href="https://dhisniger.ne"
         />
            <LinkButton
-          icon={<DbIcon />}
+          icon={<ReportsIcon />}
           title="MSPPAS"
           description="Le Ministre de la Santé et de l'Hygiène Publique"
           href="https://www.msppas.ne/"
