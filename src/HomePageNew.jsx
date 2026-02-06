@@ -15,13 +15,13 @@ export default function HomePage() {
       </h1>
 
       <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
-           Le Ministère de la Santé vous souhaite la bienvenue sur la carte sanitaire digitale, interactive et dynamique. Le développement de cette carte sanitaire, sous financement d'Enabel, s’inscrit dans le cadre du partage des informations sanitaires aux différents utilisateurs.
+        Le Ministère de la Santé vous souhaite la bienvenue sur la carte sanitaire digitale, interactive et dynamique. Le développement de cette carte sanitaire, sous financement d'Enabel, s’inscrit dans le cadre du partage des informations sanitaires aux différents utilisateurs.
       </p>
       <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
-           Elle joue un rôle de planification et de régulation de l’offre des soins et services. Aussi, elle permet une meilleure visibilité des tendances des indicateurs et des actions de santé, l’élaboration et la mise en œuvre d’outils de communication et d’information modernes.
-</p>
+        Elle joue un rôle de planification et de régulation de l’offre des soins et services. Aussi, elle permet une meilleure visibilité des tendances des indicateurs et des actions de santé, l’élaboration et la mise en œuvre d’outils de communication et d’information modernes.
+      </p>
       <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
-           Elle est principalement alimentée par le système national d'information sanitaire (DHIS2) qui est aujourd’hui l’outil principal de la gestion des données sanitaires de routine du Niger.
+        Elle est principalement alimentée par le système national d'information sanitaire (DHIS2) qui est aujourd’hui l’outil principal de la gestion des données sanitaires de routine du Niger.
       </p>
 
       {/* Buttons */}
@@ -44,10 +44,10 @@ export default function HomePage() {
           description="Données nationales sur le DHIS2"
           href="https://dhisniger.ne"
         />
-           <LinkButton
+        <LinkButton
           icon={<ReportsIcon />}
-          title="MSPPAS"
-          description="Le Ministre de la Santé et de l'Hygiène Publique"
+          title="MSHP"
+          description="Ministère de la Santé et de l'Hygiène Publique"
           href="https://www.msppas.ne/"
         />
       </div>
