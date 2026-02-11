@@ -75,7 +75,7 @@ const ReportToDownload = ({ report }) => {
         <div className="flex gap-4">
           <FieldValue
             className="text-xs text-slate-500"
-            value={report["report_name"] || "Atlas d'Accessibilité"}
+            value={report["report_name"] || "Modèle d'optimisation de la couverture sanitaire"}
           />       
         </div>
       </div>

@@ -97,14 +97,13 @@ export default function App() {
           <BackIcon /> Retour à l&apos;accueil
         </Link>
         <h1 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold md:tracking-tight xl:tracking-tighter mt-4">
-          Téléchargement de l'atlas d'accessibilité
+          Modèle d'optimisation de la couverture sanitaire
         </h1>
 
-        <p className="text-sm text-slate-500 2xl:text-base">
-          Cet outil permet de créer des <b>atlas d’accessibilité</b> afin d’analyser l’accès géographique des populations aux structures de santé et d’identifier les <b>déserts sanitaires</b>.
-          Il s’adresse principalement à la <b>Direction de la Santé</b> et aux responsables du <b>Ministère de la Santé</b> aux niveaux décentralisés, afin de les aider à identifier les emplacements où l’implantation ou l’extension d’une structure de santé aurait le plus fort impact en termes de population couverte.
-          L’outil permet notamment d’estimer l’impact, en nombre de personnes concernées, de la <b>transformation d’une Case de Santé (CS) en Centre de Santé Intégré (CSI)</b>.
-        </p>
+        <p className="text-sm text-slate-500 2xl:text-base leading-7">
+       Cet outil permet de créer des <b>atlas d’accessibilité</b> afin d’analyser l’accès géographique des populations aux structures de santé et d’identifier les <b>déserts sanitaires</b>.
+       Il s'adresse principalement aux responsables centraux du <b>Ministère de la Santé</b> et aux niveaux décentralisés afin de les aider à identifier les emplacements où <b>l'implantation/extension d'une structure de santé aurait le plus fort impact en termes de population couverte</b>
+       </p>
 
         <h1 className="text-xl font-bold">
           Sélectionner un des rapports disponibles

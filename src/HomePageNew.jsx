@@ -34,7 +34,7 @@ export default function HomePage() {
         />
         <LinkButton
           icon={<ReportsIcon />}
-          title="Atlas d'accessibilité"
+          title="Modèle d'optimisation de la couverture sanitaire"
           description="Téléchargez les rapports détaillés d'accessibilité"
           href="/reports"
         />
