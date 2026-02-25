@@ -106,7 +106,7 @@ export default function App() {
        </p>
 
         <h1 className="text-xl font-bold">
-          Sélectionner un des rapports disponibles
+          Sélectionner une région et un district afin de télécharger les rapports disponibles
         </h1>
 
         <div className="space-y-2">

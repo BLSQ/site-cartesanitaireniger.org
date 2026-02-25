@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReportsIcon from "./icons/reports";
 import DownloadIcon from "./icons/download";
+import { trackDownloadAndOpen } from "./Plausible";
 
 
 /* eslint-disable react/prop-types */
@@ -54,9 +55,11 @@ const ReportToDownload = ({ report }) => {
   const lastLevel = levels[levels.length - 1];
   return (
     <a
-      href={report["folder_download_url"]}
-      target="_blank"
-      rel="noopener noreferrer"
+      onClick={() =>
+        trackDownloadAndOpen(
+          report["folder_download_url"]
+        )
+      }
       key={report["report_name"]}
       className=" group p-4 bg-slate-100 rounded text-sm mb-2 flex items-center gap-4  transition-colors duration-300"
     >
@@ -76,7 +79,7 @@ const ReportToDownload = ({ report }) => {
           <FieldValue
             className="text-xs text-slate-500"
             value={report["report_name"] || "Modèle d'optimisation de la couverture sanitaire"}
-          />       
+          />
         </div>
       </div>
 
