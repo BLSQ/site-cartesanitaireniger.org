@@ -14,6 +14,7 @@ a react app hosted as a github pages
        - there multiple variants that might evolve as time goes by
        - openhexa link : https://app.openhexa.org/workspaces/niger-extension-couverture-sanitaire/
    - some analytics are available through plausible (assuming people don't have adblocker)
+       - https://plausible.io/share/cartesanitaireniger.org?auth=eIKgC5jCFkjbssfv1RESD
 
 
 
