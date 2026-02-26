@@ -1,91 +1,77 @@
 import { Link } from "react-router-dom";
-import Dhis2Icon from "./icons/dhis2";
+import DashboardIcon from "./icons/dashboard";
+import ReportsIcon from "./icons/reports";
+import DbIcon from "./icons/db";
+import Page from "./components/Page";
+import ChevronIcon from "./icons/chevron";
 import PinIcon from "./icons/pin";
 import BookIcon from "./icons/book";
 
 export default function HomePage() {
   return (
-    <div className="bg-white text-gray-800 flex flex-col min-h-screen">
-      <main className="flex-grow">
-        <section className="relative bg-gradient-to-b from-gray-800 to-gray-700 text-white text-center py-16">
-          <div className="absolute inset-0 opacity-30 bg-cover bg-center"></div>
-          <div className="relative z-10 max-w-2xl mx-auto px-4">
-            <img
-              src="./logo-ministere-niger.jpeg"
-              className="mx-auto mb-4 h-55"
-              alt="Ministère de la Santé et de l'hygiène publique"
-            />
-            <h1 className="text-3xl font-semibold mb-4">
-              Carte sanitaire du Niger
-            </h1>
-            <p className="text-sm leading-relaxed">
-              Le Ministre de la Santé et l'Hygiène Publique vous souhaite la
-              bienvenue sur la carte sanitaire digitale, interactive et
-              dynamique. Le développement de cette carte sanitaire avec l’appui
-              d'ENABEL, s’inscrit dans le cadre du partage des
-              informations sanitaires aux différents utilisateurs. Elle joue un
-              rôle de planification et de régulation de l’offre des soins et
-              services. Aussi, elle permet une meilleure visibilité des
-              tendances des indicateurs et des actions de santé, l’élaboration
-              et la mise en œuvre d’outils de communication et d’information
-              modernes. Elle est alimentée par le DHIS 2 qui est aujourd’hui
-              l’outil principal de la gestion des données sanitaires de routine
-              du Niger.
-            </p>
-          </div>
-        </section>
+    <Page showLogos extraContentClassName="md:justify-center">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold md:tracking-tight xl:tracking-tighter mb-2 2xl:mb-8 text-center md:text-left">
+        Carte sanitaire du Niger
+      </h1>
 
-        <section className="py-12 bg-white">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-6 px-4">
-            <Link to="/carte" className="h-full">
-              <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
-                <div className="flex justify-center items-center text-green-700 text-4xl mb-3"><PinIcon fill="grey"></PinIcon></div>                
-                <h3 className="font-medium mt-auto">Explorer la carte</h3>
-              </div>
-            </Link>
+      <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
+        Le Ministère de la Santé vous souhaite la bienvenue sur la carte sanitaire digitale, interactive et dynamique. Le développement de cette carte sanitaire, sous financement d'Enabel, s’inscrit dans le cadre du partage des informations sanitaires aux différents utilisateurs.
+      </p>
+      <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
+        Elle joue un rôle de planification et de régulation de l’offre des soins et services. Aussi, elle permet une meilleure visibilité des tendances des indicateurs et des actions de santé, l’élaboration et la mise en œuvre d’outils de communication et d’information modernes.
+      </p>
+      <p className=" mt-4 text-sm text-slate-500 leading-relaxed 2xl:text-base text-center md:text-left">
+        Elle est principalement alimentée par le système national d'information sanitaire (DHIS2) qui est aujourd’hui l’outil principal de la gestion des données sanitaires de routine du Niger.
+      </p>
 
-            <a href="https://dhisniger.ne" className="h-full">
-              <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
-                <div className="flex justify-center items-center text-green-700 text-4xl mb-3">
-                  <Dhis2Icon />
-                </div>
-                <h3 className="font-medium mt-auto">Dhis2 National</h3>
-              </div>
-            </a>
-
-            <a href="https://www.msppas.ne/" className="h-full">
-              <div className="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition flex flex-col h-full">
-              <div className="flex justify-center items-center text-green-700 text-4xl mb-3">
-                  <BookIcon />
-                </div>
-                <h3 className="font-medium mt-auto">
-                  Le Ministre de la Santé et de l'Hygiène Publique
-                </h3>
-              </div>
-            </a>
-          </div>
-        </section>
-      </main>
-      <footer className="py-8 text-center text-gray-600 mt-auto bg-white">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-6">
-          <div>
-            <h4 className="font-semibold mb-2">Partenaires</h4>
-          </div>
-        </div>
-        <div className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 px-4">
-          <div className="flex-1 flex justify-center max-h-[30px]">
-            <a href="https://www.enabel.be/fr/" >
-              <img src="/logo-enabel.png" className="max-h-[30px]"/>
-            </a>
-          </div>
-
-          <div className="flex-1 flex justify-center max-h-[30px]">
-            <a href="https://www.bluesquarehub.com/">
-              <img src="./blsq.png" className="max-h-[30px]" />
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
+      {/* Buttons */}
+      <div className="my-8 2xl:my-16 grid grid-cols-1 lg:grid-cols-4 gap-2 2xl:gap-4">
+        <LinkButton
+          icon={<PinIcon />}
+          title="Explorer la carte"
+          description="Visualisez la carte, les structures de santé et le matériel disponible"
+          href="/carte"
+        />
+        <LinkButton
+          icon={<ReportsIcon />}
+          title="Modèle d'optimisation de la couverture sanitaire"
+          description="Téléchargez les rapports détaillés d'accessibilité"
+          href="/reports"
+        />
+        <LinkButton
+          icon={<DbIcon />}
+          title="DHIS2 National"
+          description="Données nationales sur le DHIS2"
+          href="https://dhisniger.ne"
+        />
+        <LinkButton
+          icon={<ReportsIcon />}
+          title="MSHP"
+          description="Ministère de la Santé et de l'Hygiène Publique"
+          href="https://www.msppas.ne/"
+        />
+      </div>
+    </Page>
   );
 }
+
+// eslint-disable-next-line react/prop-types
+const LinkButton = ({ icon, title, description, href }) => {
+  return (
+    <Link
+      to={href}
+      className="group flex md:block bg-slate-100 space-y-2  items-center rounded p-4 font-semibold gap-4 rounded-lg  transition-all duration-300 flex-1 "
+    >
+      <div className="w-8 h-8 rounded-full bg-[#5FBFF2] group-hover:bg-[#8BD5FD] flex items-center justify-center text-[#002878] transition-all duration-300">
+        {icon}
+      </div>
+      <div className="text-lg font-bold flex-1 text-left">{title}</div>
+      <div className="text-xs 2xl:text-sm text-slate-500 mb-4 hidden md:block">
+        {description}
+      </div>
+      <span className="text-blue-500 hover:font-bold md:hidden">
+        <ChevronIcon />
+      </span>
+    </Link>
+  );
+};
