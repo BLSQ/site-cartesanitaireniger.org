@@ -69,12 +69,6 @@ export default function App() {
       deps: ["region"],
       orders: ["district:asc"],
     },
-    {
-      key: "methode",
-      label: "Méthode",
-      deps: ["region", "district"],
-      orders: ["methode:asc"],
-    },
   ];
 
   const [selections, setSelections] = useState({});
@@ -149,7 +143,7 @@ export default function App() {
             );
           })}
         </div>
-        {fields.slice(0, 2).every(({ key }) => selections[key]) && (
+        {fields.slice(0, 1).every(({ key }) => selections[key]) && (
           <ReportSummary exhibitUrl={EXHIBIT_URL} selections={selections} />
         )}
       </div>
