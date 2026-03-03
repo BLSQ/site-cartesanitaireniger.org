@@ -44,7 +44,7 @@ function ReportSummary({ exhibitUrl, selections }) {
 
   return data
     .slice(0, 4)
-    .map((row) => <ReportToDownload report={row} key={row["report_name"]} />);
+    .map((row, index) => <ReportToDownload key={row["report_name"]+"-"+index} report={row} key={row["report_name"]} />);
 }
 
 const ReportToDownload = ({ report }) => {

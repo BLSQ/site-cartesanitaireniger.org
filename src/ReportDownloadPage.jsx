@@ -57,10 +57,17 @@ function useDistinctField(
 
 export default function App() {
   const fields = [
+     {
+      key: "report_name",
+      label: "Rapport",
+      deps: [],
+      orders: ["report_name:asc"],
+      default: "Modèle d'optimisation de la couverture sanitaire - résumé (pdf)"
+    },
     {
       key: "region",
       label: "Région",
-      deps: [],
+      deps: ["report_name"],
       orders: ["region:asc"],
     },
     {
@@ -71,7 +78,7 @@ export default function App() {
     },
   ];
 
-  const [selections, setSelections] = useState({});
+  const [selections, setSelections] = useState({"report_name": "Modèle d'optimisation de la couverture sanitaire - résumé (pdf)"});
   const optionsMap = Object.fromEntries(
     fields.map(({ key, deps, orders }) => [
       key,
@@ -110,7 +117,6 @@ export default function App() {
             if (!loaded || options.length === 0) {
               return null; // hide only when fetched and empty
             }
-            debugger;
             return (
               <Select
                 key={key}
@@ -144,7 +150,7 @@ export default function App() {
           })}
         </div>
         {fields.slice(0, 1).every(({ key }) => selections[key]) && (
-          <ReportSummary exhibitUrl={EXHIBIT_URL} selections={selections} />
+          <ReportSummary key={JSON.stringify(selections)} exhibitUrl={EXHIBIT_URL} selections={selections} />          
         )}
       </div>
     </Page>
