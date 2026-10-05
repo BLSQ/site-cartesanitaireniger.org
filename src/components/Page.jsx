@@ -16,7 +16,7 @@ export default function Page({ showLogos = false, extraContentClassName = "", ch
 
         <div className="flex gap-8 xl:gap-16 flex-1">
           <div
-            className="hidden md:block md:flex-1 rounded-[1.5rem] 2xl:rounded-[2.5rem] bg-no-repeat bg-cover bg-right 
+            className="hidden md:block md:flex-1 rounded-[1.5rem] 2xl:rounded-[2.5rem] bg-no-repeat bg-contain bg-center bg-[#f6f6f4] 
   bg-[url('./carte-sanitaire-niger.png')]"
           >
 

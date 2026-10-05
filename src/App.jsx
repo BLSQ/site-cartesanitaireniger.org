@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import ReportDownloadPage from "./ReportDownloadPage";
 import HomePage from "./HomePage";
 import SupersetDashboard from "./SupersetDashboard";
-import { usePlausibleHashTracking } from "./Plausible";
+import { usePlausibleHashTracking } from "./pageHooks";
 
 export default function App() {
   usePlausibleHashTracking()

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ReportsIcon from "./icons/reports";
 import DownloadIcon from "./icons/download";
-import { trackDownloadAndOpen } from "./Plausible";
+import { trackDownloadAndOpen } from "./pageHooks";
 
 
 /* eslint-disable react/prop-types */
